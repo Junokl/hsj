@@ -1,0 +1,33 @@
+{
+  "name": "33.git",
+  "version": "1.0.0",
+  "description": "教学 前端",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1",
+    "pump": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemonyyye/h5-1808.git"
+  },
+  "author": "lemon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lemonyyye/h5-1808/issues"
+  },
+  "homepage": "https://github.com/lemonyyye/h5-1808#readme"
+}

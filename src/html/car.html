@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>购物车_蘑菇街</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/car.css" />
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/car.js"></script>
+</head>
+<body>
+    <div class="mgj_rightbar J_sidebar mini" >
+      <!--空的右侧边栏-->
+      <div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div>
+      <!--方便定margin的空dediv-->
+      <div id="mgj_rightbar_blank_div"></div>
+      <!--用户头像-->
+      <!--购物车-->
+      <div class="sidebar-item mgj-my-cart" >
+        <a target="_blank" href="car.html" rel="nofollow">
+          <i class="s-icon" style="background-position: -271px -129px;"></i>
+          <div class="s-txt">购物车</div>
+          <div class="num"></div>
+        </a>
+      </div>
+      <!--优惠券-->
+      <div class="sidebar-item mgj-my-coupon">
+        <a target="_blank" rel="nofollow" href="//promotion.mogujie.com/trade/promotion/user/shopcoupon">
+          <i class="s-icon" style="background-position: -271px -159px;"></i>
+          <div class="s-txt">优惠券</div>
+        </a>
+      </div>
+      <!--钱包-->
+      <div class="sidebar-item mgj-my-wallet">
+        <a target="_blank" rel="nofollow" href="javascript:void(0);">
+          <i class="s-icon" style="background-position: -271px -219px;"></i>
+          <div class="s-txt">钱包</div></a>
+      </div>
+      <!--足迹-->
+      <div class="sidebar-item mgj-my-browserlog">
+        <a target="_blank" rel="nofollow" href="//track.mogujie.com">
+          <i class="s-icon" style="background-position: -271px -189px;"></i>
+          <div class="s-txt">足迹</div></a>
+      </div>
+      <!-- 二维码 -->
+      <div class="mgj-my-browserlog" id="qrcode">
+        <a target="_blank" rel="nofollow" href="javascript:;">
+          <i class="qr-icon"></i>
+        </a>
+        <div id="detail-qrcode" style="display: none;">
+          <img src="https://s10.mogucdn.com/mlcdn/c45406/180521_73ibbgh52kj2dceg869h50b0bgfl6_181x200.png"></div>
+      </div>
+      <!--  -->
+      <div class="sideBottom">
+        <!--回到顶部-->
+        <div class="sidebar-item mgj-back2top" style="left: 0px;">
+          <a rel="nofollow" href="javascript:;">
+          TOP
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="all">
+        <header id="pageHeader"></header>
+        
+        <div id="body_wrap">
+          <div class="g-header clearfix">
+            <div class="g-header-in wrap clearfix">
+              <div class="process-bar">
+                <div class="md_process md_process_len4">
+                  <div class="md_process_wrap md_process_step1_5">
+                    <div class="md_process_sd"></div>
+                    <i class="md_process_i md_process_i1">1
+                      <span class="md_process_tip">购物车</span></i>
+                    <i class="md_process_i md_process_i2">2
+                      <span class="md_process_tip">确认订单</span></i>
+                    <i class="md_process_i md_process_i3">3
+                      <span class="md_process_tip">支付</span></i>
+                    <i class="md_process_i md_process_i4">
+                      <img src="https://s10.mogucdn.com/mlcdn/c45406/171012_12eba941iia4fajf729ked218cd8k_23x23.png" width="23" height="23" alt="">
+                      <span class="md_process_tip">完成</span></i>
+                  </div>
+                </div>
+              </div>
+              <div class="logo logo-cart"></div>
+            </div>
+          </div>
+          <div class="g-wrap wrap1">
+            <ul class="clearfix cart_slide" id="cartSlide">
+              <li>
+                <a href="javascript:;" url="0" class="mr55 cart_slide_item cartSlideItemAll cart_slide_item_cur  ">全部商品
+                  <span class="num">0</span></a>
+              </li>
+              <li>
+                <a href="javascript:;" url="1" class="mr55 cart_slide_item cartSlideItemCut ">优惠
+                  <span class="num1">1</span></a>
+              </li>
+              <li>
+                <a href="javascript:;" url="2" class="cart_slide_item cartSlideItemLess  cart_slide_not_allowed">库存紧张
+                  <span class="">0</span></a>
+              </li>
+            </ul>
+            <!-- 不为空的情况 -->
+            <div class="cart_wrap cart_nobdbtm">
+              <div class="cart_page_wrap" id="cartPage">
+                <input type="hidden" name="shop_domain" id="shop_domain" value="">
+                <input type="hidden" name="data_props" id="data_props" value="">
+                <input type="hidden" id="coudan_type" value="0">
+                <!-- 表格 -->
+                <table class="cart_table" id="cartOrderTable">
+                  <thead>
+                    <tr>
+                      <th class="cart_table_check_wrap cart_alleft">
+                        <input type="checkbox" name="s_all" class="s_all tr_checkmr" id="s_all_h">
+                        <label for="s_all_h">全选</label></th>
+                      <th class="cart_table_goods_wrap"></th>
+                      <th class="cart_table_goodsinfo_wrap">商品信息</th>
+                      <th>单价(元)</th>
+                      <th class="cart_table_goodsnum_wrap">数量</th>
+                      <th class="cart_table_goodssum_wrap">小计(元)</th>
+                      <th class="cart_table_goodsctrl_wrap">操作</th></tr>
+                  </thead>
+                  <tbody class="goods">
+                  <!-- 购物车商品 -->
+                    <tr class="J_mundo m-undo" style="display:none;">
+                      <td colspan="7">
+                        <div class="m-undo-wrap">成功删除
+                          <span class="J_num">1</span>件商品，如有误，可
+                          <a href="javascript:;" class="J_undo">撤销本次删除</a></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- 表格 end --></div>
+              <div class="cart_page_wrap" id="cartEmptyPage" style="display:none;">
+                <div class="cart_empty">
+                  <div class="cart_empty_icon"></div>
+                  <h5 class="mb20">您的购物车还是空的，赶快去挑选商品吧！</h5>
+                  <ul class="cart_empty_list">
+                    <li>去看看大家都喜欢的
+                      <a href="//www.mogujie.com/shopping/" class="cart_red cart_uline">潮流单品</a></li>
+                    <li>去看看正在折扣中的优品
+                      <a href="//www.mogujie.com/tuan/" class="cart_red cart_uline">团购</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="cart_paybar wrap" id="cartPaybar">
+              <a href="javascript:;" class="cart_paybtn fr cart_paybtn_disable" id="payBtn" value="去付款"></a>
+              <div class="cart_paybar_info_cost cart_deep_red  cart_font26 cart_money fr goodsSum">¥ <span class="allPrice">0.00</span></div>
+              <div class="cart_paybar_info cart_pregray fr">共有
+                <span class="cart_deep_red goodsNum">0</span>件商品，总计：</div>
+              <div class="cart_paybar_vmbox">
+                
+                <a href="javascript:;" class="mr10 cart_hoverline cart_pregray" id="cartRemoveUnuse">清空购物车</a>
+                <a href="javascript:;" class="mr10 cart_hoverline cart_pregray" id="cartRemoveToCollect">移入收藏夹</a></div>
+            </div>
+            <form action="//buy.mogujie.com/buy?ptp=1.90HmO.0.0.Y9qDPwMT" id="postform" method="POST">
+              <input type="hidden" name="postdata" id="postdata">
+              <input type="hidden" name="mtk" value="">
+              <input type="hidden" name="ptp" id="ptpdata">
+              <input type="hidden" name="ptpCnt" id="ptpCntdata">
+              <input type="hidden" name="stockptp" id="stockptp">
+              <input type="hidden" name="orderFrom" id="orderFrom" value="cart"></form>
+          </div>
+        </div>
+
+
+        <footer id="pageFooter"></footer>
+    </div>
+</body>
+</html>

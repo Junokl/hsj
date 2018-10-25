@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/goods.css" />
+    <link href="../lib/magiczoom/magiczoom.css" rel="stylesheet" type="text/css" media="screen"/>
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/goods.js"></script>
+    <script type="text/javascript" src="../js/magiczoom.js"></script>
+</head>
+<body>
+    <!-- 添加到购物车弹窗 -->
+    <div class="module-add-cart" style="display:none;">
+      <div class="module-cart-body">
+        <!--头部插入-->
+        <div class="module-cart-box">
+          <p class="mac-mb10">
+            <span class="mac-success-txt module-cart-icons">已将商品添加到购物车</span></p>
+          <p>
+            <a href="car.html" target="_top" class="mac-go-cart module-cart-icons">去购物车结算</a></p>
+        </div>
+        <div class="module-cart-more" data-ptp="_recaddcart">
+          <div class="mcm-head clearfix">
+            <div class="mcm-title">购买过该商品的菇凉还购买了：</div>
+            <div class="mcm-tab"></div>
+          </div>
+          <div class="mcm-list">
+            <ul class="clearfix">
+              <!--推荐信息插入-->
+              <li>
+                <div class="mcm-info">
+                  <a href="" target="_blank" class="mcm-pic" style="height:165px">
+                    <img src="" title="2018秋冬韩版时尚新款 短款半高领毛衣打底衫女长袖套头修身显瘦针织打底衫女潮流"></a>
+                  <a href="" target="_blank" class="mcm-name">2018秋冬韩版时尚新款 短款半高领毛衣打底衫女长袖套头修身显瘦针织打底衫女潮流</a>
+                  <span class="mcm-price">
+                    <img class="J_hideBox" src="">45.00</span></div>
+              </li>
+              <li>
+                <div class="mcm-info">
+                  <a href="" target="_blank" class="mcm-pic" style="height:165px">
+                    <img src="" title="毛衣秋冬女装韩版条纹木耳边长袖针织衫打底上衣"></a>
+                  <a href="http://shop.mogujie.com/detail/1m9t87a?acm=3.mce.1_4_1m9t87a.6338.0-46820.hx4gDr7mvr6el.p_4_609626255-sd_119_115-mid_6338-pos_1-lc_201" target="_blank" class="mcm-name">毛衣秋冬女装韩版条纹木耳边长袖针织衫打底上衣</a>
+                  <span class="mcm-price">
+                    <img class="J_hideBox" src="">54.39</span></div>
+              </li>
+              <li>
+                <div class="mcm-info">
+                  <a href="" target="_blank" class="mcm-pic" style="height:165px">
+                    <img src="" title="V领套头毛衣女秋冬韩版百搭修身长袖针织打底上衣服女士显瘦小衫"></a>
+                  <a href="" target="_blank" class="mcm-name">V领套头毛衣女秋冬韩版百搭修身长袖针织打底上衣服女士显瘦小衫</a>
+                  <span class="mcm-price">
+                    <img class="J_hideBox" src="">45.00</span></div>
+              </li>
+              <li>
+                <div class="mcm-info">
+                  <a href="" target="_blank" class="mcm-pic" style="height:165px">
+                    <img src="http://s11.mogucdn.com/mlcdn/c45406/181003_5j654f428i6lkh9h6j5jh5f89h50a_640x960.jpg" title="2017V领新款针织衫女套头纯色韩版长袖打底毛衣女秋季女韩版百搭"></a>
+                  <a href="http://shop.mogujie.com/detail/1m9cl6s?acm=3.mce.1_4_1m9cl6s.6338.0-46820.hx4gDr7mvr6el.p_4_609626255-sd_119_115-mid_6338-pos_3-lc_201" target="_blank" class="mcm-name">2017V领新款针织衫女套头纯色韩版长袖打底毛衣女秋季女韩版百搭</a>
+                  <span class="mcm-price">
+                    <img class="J_hideBox" src="">19.95</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="mgj_rightbar J_sidebar mini" style="right: 0px;">
+      <!--空的右侧边栏-->
+      <div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div>
+      <!--方便定margin的空dediv-->
+      <div id="mgj_rightbar_blank_div"></div>
+      <!--用户头像-->
+      <!--购物车-->
+      <div class="sidebar-item mgj-my-cart" style="left: 0px;">
+        <a target="_blank" href="car.html" rel="nofollow">
+          <i class="s-icon" style="background-position: -271px -129px;"></i>
+          <div class="s-txt">购物车</div>
+          <div class="num"></div>
+        </a>
+      </div>
+      <!--优惠券-->
+      <div class="sidebar-item mgj-my-coupon">
+        <a target="_blank" rel="nofollow" href="//promotion.mogujie.com/trade/promotion/user/shopcoupon">
+          <i class="s-icon" style="background-position: -271px -159px;"></i>
+          <div class="s-txt">优惠券</div>
+        </a>
+      </div>
+      <!--钱包-->
+      <div class="sidebar-item mgj-my-wallet">
+        <a target="_blank" rel="nofollow" href="javascript:void(0);">
+          <i class="s-icon" style="background-position: -271px -219px;"></i>
+          <div class="s-txt">钱包</div></a>
+      </div>
+      <!--足迹-->
+      <div class="sidebar-item mgj-my-browserlog">
+        <a target="_blank" rel="nofollow" href="//track.mogujie.com">
+          <i class="s-icon" style="background-position: -271px -189px;"></i>
+          <div class="s-txt">足迹</div></a>
+      </div>
+      <!-- 二维码 -->
+      <div class="mgj-my-browserlog" id="qrcode">
+        <a target="_blank" rel="nofollow" href="javascript:;">
+          <i class="qr-icon"></i>
+        </a>
+        <div id="detail-qrcode" style="display: none;">
+          <img src="https://s10.mogucdn.com/mlcdn/c45406/180521_73ibbgh52kj2dceg869h50b0bgfl6_181x200.png"></div>
+      </div>
+      <!--  -->
+      <div class="sideBottom">
+        <!--回到顶部-->
+        <div class="sidebar-item mgj-back2top" style="left: 0px;">
+          <a rel="nofollow" href="javascript:;">
+          TOP
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="all">
+        <header id="pageHeader"></header>
+        <div class="goods-bg">
+                <img src="../images/goods-bg.png"/>
+        </div>
+        <!-- nav -->
+        <div class="J-shop-top-nav">
+          <div class="top-nav">
+            <div class="nav-mask"></div>
+            <ul>
+              <li>
+                <a href="../index.html">首页</a></li>
+              <li class="J-top-nav-title">
+                <a href="list.htmll">全部商品
+                  <em class="arrow"></em></a>
+                <ol class="category-list">
+                  <li>
+                    <a href="list.html">热卖爆款</a></li>
+                  <li>
+                    <a href="list.html">休闲裤</a></li>
+                  <li>
+                    <a href="list.html">外穿打底裤</a></li>
+                  <li>
+                    <a href="list.html">短裤/半身裙</a></li>
+                  <li>
+                    <a href="list.html">运动裤</a></li>
+                  <li>
+                    <a href="list.html">牛仔裤</a></li>
+                  <li>
+                    <a href="list.html">秋冬爆款</a></li>
+                </ol>
+              </li>
+              <li class="J-top-nav-title">
+                <a href="list.html" class="">夏季新品</a></li>
+              <li class="J-top-nav-title">
+                <a href="list.html" class="">热卖爆款</a></li>
+              <li class="J-top-nav-title">
+                <a href="list.html" class="">休闲裤</a></li>
+              <li class="J-top-nav-title">
+                <a href="list.html" class="">外穿打底裤</a></li>
+              <li class="J-top-nav-title">
+                <a href="list.html" class="">短裤/半身裙</a></li>
+              <li class="J-top-nav-title">
+                <a href="list.html" class="">雪纺系列</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- 商品信息 -->
+
+        <div class="shop-detail">
+          <div class="detail-primary clearfix">
+            <div class="primary-goods">
+              <div class="clearfix">
+
+
+
+
+                <div class="fl goods-info goods-info-normal" id="J_GoodsInfo">
+                  <div class="info-box">
+                    <h1 class="goods-title">
+                      <span itemprop="name" class="goodstitle"></span></h1>
+                    <div class="goods-prowrap goods-main">
+                      <div class="clearfix main-box">
+                        <dl class="clearfix property-box J_NowPrice_Wrap">
+                          <dt class="property-type property-type-now">现价：</dt>
+                          <dd class="property-cont property-cont-now fl">
+                            <span >¥<span id="J_NowPrice" class="price"></span></span>
+                            <span>¥<span id="J_OriginPrice" class="price lprice"></span></span></dd>
+                          <dd class="property-extra fr">
+                            <span class="mr10">评价：
+                              <span class="numa">0</span></span>
+                            <span>累计销量：
+                              <span class="numa J_SaleNum">2</span></span>
+                          </dd>
+                        </dl>
+                        <dl id="J_PintuanPrice_Wrap" class="clearfix property-box">
+                          <dt class="property-type">2人拼团：</dt>
+                          <dd class="property-cont fl">
+                            <span>¥<span id="J_PintuanPrice" class="price"></span></span></dd>
+                        </dl>
+                        <dl id="J_ModuleModou" style="display:none" class="clearfix property-box"></dl>
+                        <div id="J_ModulePromotions">
+                          <div class="clearfix promotions-box slide-up">
+                            <div class="clearfix title">店铺优惠：</div>
+                            <div class="clearfix content">
+                              <div class="promotions-list">
+                                <div class="promotions-normal">
+                                  <div class="promotions-card">
+                                    <span class="promotions-card-text">▪&nbsp;满2件立减5元</span></div>
+                                  <div class="promotions-card">
+                                    <span class="promotions-card-text">▪&nbsp;满3件立减10元</span></div>
+                                  <div class="promotions-card">
+                                    <span class="promotions-card-text">▪&nbsp;满4件立减15元</span></div>
+                                </div>
+                              </div>
+                              <div class="promotions-more">更多优惠
+                                <span class="m-icon m-icon-arrow-down"></span></div>
+                            </div>
+                          </div>
+                          <div class="promotions-occupying"></div>
+                        </div>
+                        <dl id="J_ModuleCustomProperty" style="display:none" class="clearfix property-box"></dl>
+                      </div>
+                    </div>
+                    <div class="goods-prowrap goods-im">
+                      <dl class="clearfix">
+                        <dt>客服：</dt>
+                        <dd>
+                          <div class="mogutalk_widget_btn kefu mogutalk_default" data-bid="14e4q#23" data-style="default" data-from="goodsdetail_skumtalk"></div>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="goods-prowrap goods-sku" id="J_GoodsSku">
+                      <div class="content">
+                        <div class="pannel-title">
+                          <span class="choose-goods-info">选择商品信息</span>
+                          <b class="J_PannelClose pannel-close"></b>
+                        </div>
+                        <div class="box">
+                          <dl class="style clearfix" style="display: block;">
+                            <dt>颜色：</dt>
+                            <dd>
+                              <ol class="J_StyleList style-list clearfix">
+                                <li class="img" data-id="1" data-src="https://s11.mogucdn.com/mlcdn/c45406/181021_315cc4j8llkka08c62dhcjkfchj2b_800x800.jpg" title="黑色黑毛">
+                                  <img class="xiaotu" src="https://s11.mogucdn.com/mlcdn/c45406/181021_315cc4j8llkka08c62dhcjkfchj2b_800x800.jpg_100x100.jpg">
+                                  <b>
+                                  </b>
+                                </li>
+                                <li class="img xiaotu" data-id="2" data-src="https://s5.mogucdn.com/mlcdn/c45406/181021_530kfje05kfgc50f8jc4d3gaak2h5_800x800.jpg" title="黑色咖啡毛">
+                                  <img src="https://s5.mogucdn.com/mlcdn/c45406/181021_530kfje05kfgc50f8jc4d3gaak2h5_800x800.jpg_100x100.jpg">
+                                  <b>
+                                  </b>
+                                </li>
+                              </ol>
+                            </dd>
+                          </dl>
+                          <dl class="size clearfix" style="display: block;">
+                            <dt>尺码：</dt>
+                            <dd>
+                              <ol class="J_SizeList size-list clearfix">
+                                <li class="" data-id="100" title="S">S</li>
+                                <li class="" data-id="101" title="M">M</li>
+                                <li class="" data-id="102" title="L">L</li>
+                                <li class="" data-id="103" title="XL">XL</li></ol>
+                            </dd>
+                          </dl>
+                          <dl class="clearfix">
+                            <dt>数量：</dt>
+                            <dd class="numB clearfix">
+                              <div id="J_GoodsNum" class="goods-num fl" data-stock="7990">
+                                <span class="num-reduce goods-num num-disable">-</span>
+                                <input autocomplete="off" class="num-input" type="text" value="1">
+                                <span class="num-add  goods-num">+</span>
+                              </div>
+                              <div class="J_GoodsStock goods-stock fl">库存7990件</div>
+                              <div class="J_GoodsStockTip goods-stock-tip fl" style="display:none;">您所填写的商品数量超过库存！</div>
+                              <div class="J_EventDesc"></div>
+                            </dd>
+                          </dl>
+                        </div>
+                        <div class="pannel-action">
+                          <a href="javascript:;" class="J_PannelOK pannel-ok">确认</a></div>
+                      </div>
+                      <div class="goods-buy clearfix">
+                        <a href="javascript:;" id="J_BuyNow" class="fl mr10 buy-btn buy-now">买买买！</a>
+                        <input type="hidden" value="nodapei" id="dapeiShow">
+                        <a href="javascript:;" id="J_BuyCart" class="fl mr10 buy-cart buy-btn">
+                          <i class="m-icon m-icon-shopping-cart"></i>
+                        </a>
+                        <img src="https://s10.mogucdn.com/mlcdn/c45406/171130_19haaka7jg7224f491f44c24c8bi5_32x32.gif" class="refresh-loading"></div>
+                    </div>
+                    <div class="goods-social clearfix">
+                      <div class=" fav  item" goodsid="0" tradeitemid="1ma65e6" tid="0">
+                        <span class=" isfav  m-icon m-icon-star "></span>
+                        <span class="fav-num">4</span></div>
+                      <div class="share item">
+                        <b>
+                        </b>分享
+                        <div class="share-w clearfix">
+                          <a target="_blank" href="//sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Fwww.mogujie.com%2Fcps%2Fopen%2Ftrack%3Fchannel%3D19%26uid%3D128yxgi%26target%3Dhttps%253A%252F%252Fshop.mogujie.com%252Fdetail%252F1ma65e6&amp;title=全国包邮@七天无理由退货@赠送运费险@&#10;pu皮裤女2018秋冬季新款韩版高腰短裤加绒加厚宽松阔腿裤外穿靴裤&amp;pics=https://s5.mogucdn.com/mlcdn/c45406/181021_5030c75468a04i2a7562662ge9fh1_640x960.jpg_468x468.jpg" class="forqzone" title="关注QQ空间" rel="nofollow"></a>
+                          <a target="_blank" href="//service.weibo.com/share/share.php?url=http%3A%2F%2Fwww.mogujie.com%2Fcps%2Fopen%2Ftrack%3Fchannel%3D19%26uid%3D128yxgi%26target%3Dhttps%253A%252F%252Fshop.mogujie.com%252Fdetail%252F1ma65e6&amp;title=全国包邮@七天无理由退货@赠送运费险@&#10;pu皮裤女2018秋冬季新款韩版高腰短裤加绒加厚宽松阔腿裤外穿靴裤&amp;pic=https://s5.mogucdn.com/mlcdn/c45406/181021_5030c75468a04i2a7562662ge9fh1_640x960.jpg_468x468.jpg" class="forsina" title="关注sina" rel="nofollow"></a>
+                        </div>
+                      </div>
+                      <div class="report">
+                        <a target="_blank" href="//cs.mogujie.com/dispute/report/add.html?itemid=1ma65e6" class="goods_report fl" rel="nofollow">举报</a></div>
+                    </div>
+                    <div class="goods-extra clearfix">
+                      <div class="extra-services">
+                        <div class="fl clearfix label">服务承诺：</div>
+                        <ul class="fl clearfix list">
+                          <li class="item">
+                            <a class="link" href="https://www.mogujie.com/rule/mogu?categoryId=326&amp;ruleId=895" target="_blank" title="" rel="nofollow">
+                              <img src="https://s11.mogucdn.com/p1/160826/idid_ie3tmyjxhfrtgzbzmezdambqgayde_40x40.png" width="24" height="24">全国包邮</a></li>
+                          <li class="item">
+                            <a class="link" href="https://www.mogujie.com/rule/mogu?categoryId=326&amp;ruleId=892" target="_blank" title="" rel="nofollow">
+                              <img src="https://s11.mogucdn.com/p1/160826/idid_ifrtgojygu2dgzbzmezdambqhayde_40x40.png" width="24" height="24">7天无理由退货</a></li>
+                          <li class="item">
+                            <a class="link" href="https://www.mogujie.com/rule/mogu?categoryId=326&amp;ruleId=893" target="_blank" title="" rel="nofollow">
+                              <img src="https://s3.mogucdn.com/p1/160826/idid_ifrdqobzmq3dizbzmezdambqmeyde_40x40.png" width="24" height="24">72小时发货</a></li>
+                          <li class="item">
+                            <span class="link">
+                              <img src="https://s3.mogucdn.com/mlcdn/c45406/180507_28e51dj168kc26e3f3hjag91aagab_62x64.png" width="24" height="24">延误必赔</span></li>
+                          <li class="item">
+                            <a class="link" href="https://www.mogujie.com/rule/mogu?categoryId=326&amp;ruleId=927" target="_blank" title="" rel="nofollow">
+                              <img src="https://s11.mogucdn.com/p1/160826/idid_ie4timrzmq3tkzbzmezdambqgqyde_40x40.png" width="24" height="24">退货补运费</a></li>
+                        </ul>
+                      </div>
+                      <div class="extra-pay">
+                        <div class="fl clearfix label">支付方式：</div>
+                        <div class="fl list list-nomaibei"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fl goods-topimg" id="J_GoodsImg">
+                  <div class="big-img">
+                    <button class="middle">
+                      <img id="J_BigImg" src="https://s5.mogucdn.com/mlcdn/c45406/181021_5030c75468a04i2a7562662ge9fh1_640x960.jpg_468x468.jpg" data-main="https://s5.mogucdn.com/mlcdn/c45406/181021_5030c75468a04i2a7562662ge9fh1_640x960.jpg_468x468.jpg" alt="" width="400"></button>
+                  </div>
+                  <div id="J_SmallImgs" class="small-img">
+                    <div class="box">
+                      <div class="list">
+                        <ul class="clearfix carousel" style="text-align: center;">
+                          <li>
+                            <img class="xiaotu" src="https://s5.mogucdn.com/mlcdn/c45406/181021_5030c75468a04i2a7562662ge9fh1_640x960.jpg_100x100.jpg">
+                            <i>
+                            </i>
+                          </li>
+                          <li>
+                            <img src="https://s3.mogucdn.com/mlcdn/c45406/181021_4l037bbiclbc9d8g9e371gli4h702_640x960.jpg_100x100.jpg">
+                            <i>
+                            </i>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <a class="left-btn arrow-btn" href="javascript:;"></a>
+                    <a class="right-btn arrow-btn" href="javascript:;"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <div class="primary-slide">
+              <div class="goods-recommend" id="J_ModuleLook" data-ptp="_rechot">
+                <!-- 热卖推荐 -->
+                <p class="title">
+                  <s>
+                  </s>
+                  <span>热卖推荐</span></p>
+                <div class="list">
+                  <div class="box">
+                    <ul>
+                      <li>
+                        <a href="//shop.mogujie.com/detail/1m9x3ec?acm=3.mce.1_4_1m9x3ec.5124.0-32450.gd7ajr7cHkNYE.sd_119_115-mid_5124-pos_0-pm_014-lc_201" target="_blank">
+                          <img src="https://s3.mogucdn.com/mlcdn/c45406/181015_88319b0b678k60i389i213k05lcke_640x958.jpg_220x330.jpg" width="120" data-iids="1m9x3ec" data-indexs="0" data-acms="3.mce.1_4_1m9x3ec.5124.0-32450.gd7ajr7cHkNYE.sd_119_115-mid_5124-pos_0-pm_014-lc_201" class="loggered"></a>
+                        <div>￥53</div></li>
+                      <li>
+                        <a href="//shop.mogujie.com/detail/1m8s5l2?acm=3.mce.1_4_1m8s5l2.5124.0-32450.gd7ajr7cHkNYE.sd_119_115-mid_5124-pos_1-pm_014-lc_201" target="_blank">
+                          <img src="https://s3.mogucdn.com/mlcdn/c45406/180920_38h8ik38j6c4bi54h1lbki1a22ii6_640x960.jpg_220x330.jpg" width="120" data-iids="1m8s5l2" data-indexs="1" data-acms="3.mce.1_4_1m8s5l2.5124.0-32450.gd7ajr7cHkNYE.sd_119_115-mid_5124-pos_1-pm_014-lc_201" class="loggered"></a>
+                        <div>￥75</div></li>
+                      <li>
+                        <a href="//shop.mogujie.com/detail/1m9vyo4?acm=3.mce.1_4_1m9vyo4.5124.0-32450.gd7ajr7cHkNYE.sd_119_115-mid_5124-pos_2-pm_014-lc_201" target="_blank">
+                          <img src="https://s11.mogucdn.com/mlcdn/c45406/181015_5e7i4liih4baj8aciej1619dk946e_640x959.jpg_220x330.jpg" width="120" data-iids="1m9vyo4" data-indexs="2" data-acms="3.mce.1_4_1m9vyo4.5124.0-32450.gd7ajr7cHkNYE.sd_119_115-mid_5124-pos_2-pm_014-lc_201" class="loggered"></a>
+                        <div>￥61</div></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="J_ModuleCustomBanner" style="display:none"></div>
+
+          <div class="detail-content ">
+            <!-- 顶部 -->
+            <div class="col-top">
+              <!-- 搭配购 -->
+              <div class="module-dapei" id="J_ModuleDapei"></div>
+            </div>
+            <!-- 主体 -->
+            <div class="col-main fl">
+              <!-- 模块标签页 -->
+              <div class="module-tabpanel" id="J_ModuleTabpanel">
+                <!-- 选项栏 -->
+                <div class="tabbar-box">
+                  <ul class="tabbar-list clearfix">
+                    <li data-panels="graphic,recommend" data-hasnav="true" class="tab-graphic selected">
+                      <a href="javascript:;">商品详情</a></li>
+                    <li data-panels="rates" data-hasnav="false">
+                      <a href="javascript:;">累计评价
+                        <em></em></a>
+                    </li>
+                    <li data-panels="recommend" data-hasnav="false">
+                      <a href="javascript:;">本店同类商品</a></li>
+                    <!-- 购物车模块 -->
+                    <li class="module-cart" id="J_ModuleCart">
+                      <div class="cart-info">
+                        <div class="ui-hd cart-hd">
+                          <div class="cart-name" href="javascript:;">
+                            <span>
+                              <i>
+                              </i>加入购物车</span>
+                          </div>
+                        </div>
+                        <div class="cart-occupying ui-hide"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tabbar-bg ui-hide">
+                  <div class="bg-right"></div>
+                  <div class="bg-left"></div>
+                </div>
+                <div class="tabbar-occupying ui-hide"></div>
+                <!-- 选项页 -->
+                <div class="panel-box">
+                  <!-- 图文详情 -->
+                  <div class="module-panel module-graphic" id="J_ModuleGraphic">
+                    <!-- 图文详情 -->
+                    <!-- 注：PHP模板走的是本地模板文件：views/modules/module-graphic.php-->
+                    <div class="split-image">
+                      <!-- 商品描述 -->
+                      <div id="J_Graphic_desc">
+                        <div class="panel-title">
+                          <h1>商品描述</h1></div>
+                        <!-- 描述 -->
+                        <div class="graphic-text">全国包邮@七天无理由退货@赠送运费险@ pu皮裤女2018秋冬季新款韩版高腰短裤加绒加厚宽松阔腿裤外穿靴裤</div></div>
+                      <!-- 产品参数 -->
+                      <div id="J_Graphic_产品参数">
+                        <div class="panel-title">
+                          <h1>产品参数</h1></div>
+                        <!-- 产品参数 -->
+                        <div class="graphic-block">
+                          <!-- 描述 -->
+                          <!-- 表格 -->
+                          <table class="parameter-table" id="J_ParameterTable">
+                            <tbody>
+                              <tr class="">
+                                <td>图案: 色块</td>
+                                <td>颜色: 黑色黑毛,黑色咖啡毛</td>
+                                <td>腰型: 高腰</td></tr>
+                              <tr class="">
+                                <td>尺码: S,XL,L,M</td>
+                                <td>季节: 秋冬</td>
+                                <td>材质: PU</td></tr>
+                              <tr class="">
+                                <td>元素: 松紧,系带,立体口袋,面料拼接,柔软洗</td>
+                                <td>裤型: 短裤</td>
+                                <td>风格: 甜美</td></tr>
+                              <tr class="">
+                                <td>闭合方式: 系绳腰带</td>
+                                <td>潮流: 韩系</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- 模块级别 -->
+                      <div class="graphic-block">
+                        <!-- 图片列表 -->
+                        <div id="J_Graphic_穿着效果">
+                          <div class="panel-title">
+                            <h1>穿着效果</h1></div>
+                          <!-- 描述 -->
+                          <div class="graphic-pic">
+                            
+                              <img class="lazy" style="left: -350px; display: block;" data-original="//s11.mogucdn.com/mlcdn/c45406/181021_0ach7ga9klaiag8g3c3hcl92jdaa6_750x1040.jpg_750x999.jpg" src="//s11.mogucdn.com/mlcdn/c45406/181021_0ach7ga9klaiag8g3c3hcl92jdaa6_750x1040.jpg_750x999.jpg">
+                          </div>
+                          <div class="graphic-pic">
+                            
+                              <img class="lazy" style="left: -350px; display: block;" data-original="//s11.mogucdn.com/mlcdn/c45406/181021_4kfi264j7hkkd5dej6ldf1d3ja215_750x724.jpg_750x999.jpg" src="//s11.mogucdn.com/mlcdn/c45406/181021_4kfi264j7hkkd5dej6ldf1d3ja215_750x724.jpg_750x999.jpg">
+                          </div>
+                          <div class="graphic-pic">
+                              <img class="lazy" style="left: -350px; display: block;" data-original="//s5.mogucdn.com/mlcdn/c45406/181021_2e2k35713f4ce2j9dgg637gd581j9_750x1044.jpg_750x999.jpg" src="//s5.mogucdn.com/mlcdn/c45406/181021_2e2k35713f4ce2j9dgg637gd581j9_750x1044.jpg_750x999.jpg">
+                          </div>
+                          
+                        </div>
+                        <div id="J_Graphic_细节做工">
+                          <div class="panel-title">
+                            <h1>细节做工</h1></div>
+                          <!-- 描述 -->
+                          <div class="graphic-pic">
+                            
+                              <img class="lazy" style="left:-350px;" src="../images/xijie1.jpg" >
+                          </div>
+                          <div class="graphic-pic">
+                            
+                              <img class="lazy" style="left:-350px;" src="../images/xijie2.jpg">
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <!-- 尺码说明 -->
+                      <div id="J_Graphic_尺码说明">
+                        <div class="panel-title">
+                          <h1>尺码说明</h1></div>
+                        <!-- 尺码说明 -->
+                        <div class="graphic-block">
+                          <!-- 描述 -->
+                          <!-- 表格 -->
+                          <table class="size-table">
+                            <thead>
+                              <tr>
+                                <td>尺码</td>
+                                <td>腰围</td>
+                                <td>裤长</td>
+                                <td>臀围</td></tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>S</td>
+                                <td>30-42</td>
+                                <td>30</td>
+                                <td>90</td></tr>
+                              <tr>
+                                <td>M</td>
+                                <td>30-45</td>
+                                <td>31</td>
+                                <td>94</td></tr>
+                              <tr>
+                                <td>L</td>
+                                <td>32-48</td>
+                                <td>32</td>
+                                <td>98</td></tr>
+                              <tr>
+                                <td>XL</td>
+                                <td>34-50</td>
+                                <td>33</td>
+                                <td>102</td></tr>
+                            </tbody>
+                          </table>
+                          <!-- 提醒 -->
+                          <div class="size-text">※ 以上尺寸为实物人工测量，因测量当时不同会有1-2cm误差，相关数据仅作参考，以收到实物为准。</div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 累计评价 -->
+                  <div class="module-panel module-rates ui-none" id="J_ModuleRates">
+                    <!-- 买家评价 -->
+                    <div id="J_RatesBuyer">
+                      <div class="panel-title rates-title">
+                        <h1>买家评价</h1></div>
+                      <!-- 买家评价 -->
+                      <div class="rates-buyer">
+                        <div class="module-empty">还没有买家进行文字或晒图评价，等你来评价哦~</div></div>
+                    </div>
+                    <!-- 成交记录 -->
+                    <div id="J_RatesOrder">
+                      <div class="panel-title rates-title">
+                        <h1>成交记录</h1></div>
+                      <!-- 成交记录 -->
+                      <div class="rates-order">
+                        <!-- 列表 -->
+                        <div class="sale-list" id="J_RatesOrderList"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 本店同类商品 -->
+                  <div class="module-panel module-recommend" id="J_ModuleRecommend">
+                    <!-- 本店同类商品 -->
+                    <!-- 注：PHP模板走的是本地模板文件：views/modules/module-recommend.php-->
+                    <!-- 本店同类商品列表 -->
+                    <div id="J_RecommendList">
+                      <div class="panel-title recommend-title">
+                        <h1>本店同类商品</h1></div>
+                      <!-- 本店同类商品列表 -->
+                      <div class="recommend-list">
+                        <!-- 列表 -->
+                        <ul>
+                          <li>
+                            <a class="pic" href="" target="_blank">
+                              <img class="lazy" src="" data-original="" data-iids="" data-indexs="0" data-acms=""></a>
+                            <a class="title" href="" target="_blank">夏装韩版减龄工装时尚百搭个性原宿风街头超火撞色背带裤宽松显瘦直筒九分连体裤女学生高腰休闲裤</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">85</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">1732</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="" target="_blank">
+                              <img class="lazy" src="" data-original="" data-iids="" data-indexs="1" data-acms=""></a>
+                            <a class="title" href="" target="_blank">早秋韩版时尚女装新款小清新超火长袖运动拼色卫衣外套+百搭松紧腰显瘦束脚条纹九分裤休闲两件套</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">56.79</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">656</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="" target="_blank">
+                              <img class="lazy" src="" data-original="" data-iids="1m7e8ek" data-indexs="2" data-acms=""></a>
+                            <a class="title" href="" target="_blank">秋季女装新款韩版原宿风工装背带裤拼色束脚休闲阔腿裤+修身两穿短款一字领长袖T恤学生两件套装</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">40.6</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">1028</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="" target="_blank">
+                              <img class="lazy" src="" data-original="" data-iids="1lw2g6m" data-indexs="3" data-acms=""></a>
+                            <a class="title" href="" target="_blank">不规则半身裙女时尚新款女装春装拼接纯色心机设计感气质百搭中长裙A字裙潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">62.3</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">806</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m6r0a4?acm=3.mce.1_4_1m6r0a4.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_4-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s3.mogucdn.com/mlcdn/c45406/180802_703c4kde10dif4g49a3k68iafl9k5_640x960.jpg_220x330.jpg" data-iids="1m6r0a4" data-indexs="4" data-acms="3.mce.1_4_1m6r0a4.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_4-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m6r0a4?acm=3.mce.1_4_1m6r0a4.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_4-pm_014-lc_201" target="_blank">裤子女夏时尚新款韩版原宿风街头嘻哈bf漫画系带束脚裤休闲裤阔腿裤显瘦学生百搭小清新宽松潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">54.9</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">134</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m7psxc?acm=3.mce.1_4_1m7psxc.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_5-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180826_77i8j5l1l2f366c8hi18a9b07hal4_640x960.jpg_220x330.jpg" data-iids="1m7psxc" data-indexs="5" data-acms="3.mce.1_4_1m7psxc.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_5-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m7psxc?acm=3.mce.1_4_1m7psxc.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_5-pm_014-lc_201" target="_blank">秋装女套装新款网红韩版百褶复古格子长袖连衣裙+针织毛衣开衫外套时尚套装两件套女学生气质潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">56.8</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">775</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1lv2vxm?acm=3.mce.1_4_1lv2vxm.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_6-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s3.mogucdn.com/mlcdn/c45406/180328_505k27fidle3le40i1a619i0g0j2c_640x960.jpg_220x330.jpg" data-iids="1lv2vxm" data-indexs="6" data-acms="3.mce.1_4_1lv2vxm.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_6-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1lv2vxm?acm=3.mce.1_4_1lv2vxm.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_6-pm_014-lc_201" target="_blank">春季新款时尚女装裤子chic韩版BF风高腰宽松显瘦水洗毛边牛仔裤学生百搭阔腿裤显瘦</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">49.88</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">1023</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m7qw0k?acm=3.mce.1_4_1m7qw0k.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_7-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180827_868jl4kh2dlf9c85c22e3jif96ab8_640x960.jpg_220x330.jpg" data-iids="1m7qw0k" data-indexs="7" data-acms="3.mce.1_4_1m7qw0k.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_7-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m7qw0k?acm=3.mce.1_4_1m7qw0k.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_7-pm_014-lc_201" target="_blank">秋装女装日系学院风百搭衬衫白色衬衣上衣+复古格子裤九分休闲裤套装两件套显瘦学生小清新时尚潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">79.84</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">510</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m7syj8?acm=3.mce.1_4_1m7syj8.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_8-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180828_6f4kc09i33dj74cbjaf8j9kdkjcld_640x960.jpg_220x330.jpg" data-iids="1m7syj8" data-indexs="8" data-acms="3.mce.1_4_1m7syj8.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_8-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m7syj8?acm=3.mce.1_4_1m7syj8.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_8-pm_014-lc_201" target="_blank">妈妈秋装两件套中年长袖大码40岁50条纹刺绣圆领上衣+松紧腰显瘦休闲裤中老年运动服套装</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">92</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">27</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m8p7m0?acm=3.mce.1_4_1m8p7m0.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_9-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180918_2bh9gdf63lk087d19fflh9gk3a05g_640x960.jpg_220x330.jpg" data-iids="1m8p7m0" data-indexs="9" data-acms="3.mce.1_4_1m8p7m0.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_9-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m8p7m0?acm=3.mce.1_4_1m8p7m0.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_9-pm_014-lc_201" target="_blank">韩版学院风宽松慵懒风中长款开衫上女秋季新款纯色百搭长袖灯芯绒外套港味复古简约宽松百搭外套潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">76.3</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">1251</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m90en0?acm=3.mce.1_4_1m90en0.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_10-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180925_4cjcb56bal7i8314c3ehbadkjch9a_640x960.jpg_220x330.jpg" data-iids="1m90en0" data-indexs="10" data-acms="3.mce.1_4_1m90en0.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_10-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m90en0?acm=3.mce.1_4_1m90en0.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_10-pm_014-lc_201" target="_blank">秋装新款时尚韩版中长款字母加绒加厚连帽套头ins超火长袖卫衣女秋季宽松外套女学生清新气质潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">86.8</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">904</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m8r0uo?acm=3.mce.1_4_1m8r0uo.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_11-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180919_2ffj2l70ga6ig6af5h7akggda1ce7_640x960.jpg_220x330.jpg" data-iids="1m8r0uo" data-indexs="11" data-acms="3.mce.1_4_1m8r0uo.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_11-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m8r0uo?acm=3.mce.1_4_1m8r0uo.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_11-pm_014-lc_201" target="_blank">韩版新款网红温婉同款港味复古chic早秋外套拼接条纹长款宽松显瘦长袖风衣女潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">123</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">107</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m88qj6?acm=3.mce.1_4_1m88qj6.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_12-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180906_72iahh2chefl3l7ad0bjkl0gkb9aj_640x960.jpg_220x330.jpg" data-iids="1m88qj6" data-indexs="12" data-acms="3.mce.1_4_1m88qj6.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_12-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m88qj6?acm=3.mce.1_4_1m88qj6.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_12-pm_014-lc_201" target="_blank">早秋季新款套装学生百搭纯色长袖打底衫T恤+高腰系带收腰格子休闲九分裤时尚套装两件套女气质潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">39.9</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">91</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m8hhfo?acm=3.mce.1_4_1m8hhfo.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_13-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s3.mogucdn.com/mlcdn/c45406/180912_8eh77fa3j19hlb6cg1i9b06dd394i_640x960.jpg_220x330.jpg" data-iids="1m8hhfo" data-indexs="13" data-acms="3.mce.1_4_1m8hhfo.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_13-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m8hhfo?acm=3.mce.1_4_1m8hhfo.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_13-pm_014-lc_201" target="_blank">秋季新款韩风小清新学生百搭高腰显瘦撞色波点包臀半身裙中长裙针织裙时尚气质潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">49.9</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">31</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m8f4oe?acm=3.mce.1_4_1m8f4oe.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_14-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s11.mogucdn.com/mlcdn/c45406/180911_7cl968033e454c5lhl2iig5ed0674_640x960.jpg_220x330.jpg" data-iids="1m8f4oe" data-indexs="14" data-acms="3.mce.1_4_1m8f4oe.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_14-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m8f4oe?acm=3.mce.1_4_1m8f4oe.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_14-pm_014-lc_201" target="_blank">秋装女新款套装时尚两件套连帽迷彩卫衣外套韩版复古高腰直筒裤休闲裤长裤个性学生显瘦绑带秋季潮</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">63.36</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">76</span></div>
+                            </div>
+                          </li>
+                          <li>
+                            <a class="pic" href="//shop.mogujie.com/detail/1m99nbs?acm=3.mce.1_4_1m99nbs.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_15-pm_014-lc_201" target="_blank">
+                              <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s3.mogucdn.com/mlcdn/c45406/181001_06hg007050j2h1khdl3ea62c55h6a_640x960.jpg_220x330.jpg" data-iids="1m99nbs" data-indexs="15" data-acms="3.mce.1_4_1m99nbs.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_15-pm_014-lc_201"></a>
+                            <a class="title" href="//shop.mogujie.com/detail/1m99nbs?acm=3.mce.1_4_1m99nbs.5148.0-32447.8mWH5r7cK9Rh6.sd_119_115-mid_5148-pos_15-pm_014-lc_201" target="_blank">秋装新款女装日系甜美学院风牛角扣毛呢外套宽松中长款大衣学生上衣</a>
+                            <div class="info">
+                              <div class="price">
+                                <em class="price-u">¥</em>
+                                <span class="price-n">103</span></div>
+                              <div class="fav">
+                                <em class="fav-i"></em>
+                                <span class="fav-n">16</span></div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 侧边栏 -->
+            <div class="col-sidebar">
+              <!-- 店铺模块 -->
+              <div class="module-shop" id="J_ModuleShop">
+                <!-- 店铺信息 -->
+                <div class="ui-box shop-info">
+                  <h3 class="ui-hd shop-hd">
+                    <div class="shop-name">
+                      <a class="text text-hasim" href="https://shop.mogujie.com/14e4q">爱皱眉的飞飞
+                        <div class="mogutalk_widget_btn kefu mogutalk_pc" data-bid="14e4q#23" data-style="pc" data-from="goodsdetail_skumtalk"></div></a>
+                    </div>
+                  </h3>
+                  <div class="shop-occupying ui-hide"></div>
+                  <div class="ui-bd">
+                    <div class="shop-evaluate">
+                      <ul>
+                        <li>
+                          <p class="text">描述</p>
+                          <p class="num-def  num-low ">4.62</p></li>
+                        <li>
+                          <p class="text">质量</p>
+                          <p class="num-def  num-low ">4.58</p></li>
+                        <li>
+                          <p class="text">服务</p>
+                          <p class="num-def  num-low ">4.7</p></li>
+                      </ul>
+                    </div>
+                    <div class="shop-btns">
+                      <a id="J_ShopFav" rel="nofollow" class="J-shop-follow shop-follow  btn-fav " href="javascript:;" data-shopid="14e4q">收藏店铺</a>
+                      <a class="btn-goto" href="https://shop.mogujie.com/14e4q">进入店铺</a></div>
+                    <div class="shop-search">
+                      <i class="line"></i>
+                      <form action="https://shop.mogujie.com/14e4q/search/index" method="get" id="J_ShopSearch">
+                        <input class="inptxt" type="text" name="q">
+                        <input class="inpbtn" type="submit" value="店内搜索"></form>
+                    </div>
+                    <!--<div class="shop-provide">
+                    <i class="line"></i>
+                    <i class="arrow"></i>
+                    <a class="pic" href="javascript:;">
+                    <img class="img-lazyload" width="150" height="26" src="https://s10.mogucdn.com/p1/150914/upload_ie2dsmbsmyydcmtbgmzdambqgiyde_150x26.png"></a>
+                    </div>-->
+                  </div>
+                </div>
+              </div>
+              <!-- 分类模块 -->
+              <div class="module-classify" id="J_ModuleClassify">
+                <!-- 分类信息 -->
+                <div class="ui-box classify-info">
+                  <h3 class="ui-hd">本店分类</h3>
+                  <div class="ui-bd">
+                    <!-- 列表 -->
+                    <ul class="classify-list">
+                      <li>
+                        <a href="https://shop.mogujie.com/14e4q/index/total">全部商品</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- 看了又看模块 -->
+              <div class="module-repeat" id="J_ModuleRepeat">
+                <!-- 看了又看 -->
+                <!-- 注：PHP模板走的是本地模板文件：views/modules/module-repeat.php-->
+                <!-- 看了又看信息 -->
+                <div class="ui-box repeat-info">
+                  <h3 class="ui-hd">看了又看</h3>
+                  <div class="ui-bd">
+                    <!-- 列表 -->
+                    <ul class="repeat-list">
+                      <li data-id="1m9x3ec">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m9x3ec?acm=3.mce.1_4_1m9x3ec.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_0-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s3.mogucdn.com/mlcdn/c45406/181015_88319b0b678k60i389i213k05lcke_640x958.jpg_220x330.jpg" data-original="https://s3.mogucdn.com/mlcdn/c45406/181015_88319b0b678k60i389i213k05lcke_640x958.jpg_220x330.jpg" data-iids="1m9x3ec" data-indexs="0" data-acms="3.mce.1_4_1m9x3ec.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_0-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m9x3ec?acm=3.mce.1_4_1m9x3ec.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_0-pm_014-lc_201" target="_blank">卫衣女秋冬韩版宽松ins超火的外套加绒加厚慵懒风上衣小个子百搭条纹卫衣女学生</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">53</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">1</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m8s5l2">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m8s5l2?acm=3.mce.1_4_1m8s5l2.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_1-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s3.mogucdn.com/mlcdn/c45406/180920_38h8ik38j6c4bi54h1lbki1a22ii6_640x960.jpg_220x330.jpg" data-original="https://s3.mogucdn.com/mlcdn/c45406/180920_38h8ik38j6c4bi54h1lbki1a22ii6_640x960.jpg_220x330.jpg" data-iids="1m8s5l2" data-indexs="1" data-acms="3.mce.1_4_1m8s5l2.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_1-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m8s5l2?acm=3.mce.1_4_1m8s5l2.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_1-pm_014-lc_201" target="_blank">中老年女装秋装针织衫女毛衣圆领宽松套头妈妈装半高领长袖打底衫</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">75</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">5</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m9vyo4">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m9vyo4?acm=3.mce.1_4_1m9vyo4.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_2-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s11.mogucdn.com/mlcdn/c45406/181015_5e7i4liih4baj8aciej1619dk946e_640x959.jpg_220x330.jpg" data-original="https://s11.mogucdn.com/mlcdn/c45406/181015_5e7i4liih4baj8aciej1619dk946e_640x959.jpg_220x330.jpg" data-iids="1m9vyo4" data-indexs="2" data-acms="3.mce.1_4_1m9vyo4.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_2-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m9vyo4?acm=3.mce.1_4_1m9vyo4.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_2-pm_014-lc_201" target="_blank">chic上衣港味长袖2018秋季新款拼色加厚学生宽松韩版卫衣外套女韩国甜美重工加厚套头卫衣</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">61</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">1</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m8as0w">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m8as0w?acm=3.mce.1_4_1m8as0w.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_3-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s11.mogucdn.com/mlcdn/c45406/180908_3lc9c64ibdi4g56783bei49dlh567_640x960.jpg_220x330.jpg" data-original="https://s11.mogucdn.com/mlcdn/c45406/180908_3lc9c64ibdi4g56783bei49dlh567_640x960.jpg_220x330.jpg" data-iids="1m8as0w" data-indexs="3" data-acms="3.mce.1_4_1m8as0w.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_3-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m8as0w?acm=3.mce.1_4_1m8as0w.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_3-pm_014-lc_201" target="_blank">秋季新款套装网红宽松长袖纯色衬衫+拼接撞色侧纹拉链运动休闲长裤时尚套装两件套女神学生气质潮</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">69.9</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">17</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m9sj1o">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m9sj1o?acm=3.mce.1_4_1m9sj1o.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_4-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s3.mogucdn.com/mlcdn/c45406/181013_151g73ha78303j617e237fj89g0gg_640x960.jpg_220x330.jpg" data-original="https://s3.mogucdn.com/mlcdn/c45406/181013_151g73ha78303j617e237fj89g0gg_640x960.jpg_220x330.jpg" data-iids="1m9sj1o" data-indexs="4" data-acms="3.mce.1_4_1m9sj1o.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_4-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m9sj1o?acm=3.mce.1_4_1m9sj1o.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_4-pm_014-lc_201" target="_blank">秋冬季新款韩版复古设计款镂空V领挂脖针织裙中长裙子女气质连衣裙淑女小清新纯色直筒裙百搭黑色</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">78.5</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">6</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1ma4h1k">
+                        <a class="pic" href="//shop.mogujie.com/detail/1ma4h1k?acm=3.mce.1_4_1ma4h1k.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_5-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s11.mogucdn.com/mlcdn/c45406/181020_190kf7fili1fe1b2b69k1a9791ff4_640x960.jpg_220x330.jpg" data-original="https://s11.mogucdn.com/mlcdn/c45406/181020_190kf7fili1fe1b2b69k1a9791ff4_640x960.jpg_220x330.jpg" data-iids="1ma4h1k" data-indexs="5" data-acms="3.mce.1_4_1ma4h1k.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_5-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1ma4h1k?acm=3.mce.1_4_1ma4h1k.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_5-pm_014-lc_201" target="_blank">新款羽绒棉服外套女ins面包服连帽大毛领韩版宽松bf棉袄冬季中长款棉衣学生</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">129.9</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">0</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m9qz6k">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m9qz6k?acm=3.mce.1_4_1m9qz6k.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_6-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s11.mogucdn.com/mlcdn/c45406/181012_5d14bhkld5fj15961jkk9gf3kb397_640x960.jpg_220x330.jpg" data-original="https://s11.mogucdn.com/mlcdn/c45406/181012_5d14bhkld5fj15961jkk9gf3kb397_640x960.jpg_220x330.jpg" data-iids="1m9qz6k" data-indexs="6" data-acms="3.mce.1_4_1m9qz6k.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_6-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m9qz6k?acm=3.mce.1_4_1m9qz6k.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_6-pm_014-lc_201" target="_blank">慵懒风上衣秋装2018小清新甜美可爱减龄显瘦学生外套新款韩版宽松长袖ins超火的卫衣女围脖</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">73.16</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">6</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1ma2v1u">
+                        <a class="pic" href="//shop.mogujie.com/detail/1ma2v1u?acm=3.mce.1_4_1ma2v1u.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_7-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s3.mogucdn.com/mlcdn/c45406/181019_5j916b33eajgej1el7be8a298c7f9_640x960.jpg_220x330.jpg" data-original="https://s3.mogucdn.com/mlcdn/c45406/181019_5j916b33eajgej1el7be8a298c7f9_640x960.jpg_220x330.jpg" data-iids="1ma2v1u" data-indexs="7" data-acms="3.mce.1_4_1ma2v1u.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_7-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1ma2v1u?acm=3.mce.1_4_1ma2v1u.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_7-pm_014-lc_201" target="_blank">秋冬韩版时尚女装新款原宿风BF百搭工装宽松情侣嘻哈多口袋个性多口袋拼接撞色学生外套</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">86</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">2</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m9qyzq">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m9qyzq?acm=3.mce.1_4_1m9qyzq.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_8-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s11.mogucdn.com/mlcdn/c45406/181012_3cgjcb12lldj30368e02he15h7hh5_640x960.jpg_220x330.jpg" data-original="https://s11.mogucdn.com/mlcdn/c45406/181012_3cgjcb12lldj30368e02he15h7hh5_640x960.jpg_220x330.jpg" data-iids="1m9qyzq" data-indexs="8" data-acms="3.mce.1_4_1m9qyzq.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_8-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m9qyzq?acm=3.mce.1_4_1m9qyzq.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_8-pm_014-lc_201" target="_blank">慵懒风上衣秋小清新原宿学生男友系带2018新款韩版pphome卫衣套头宽松高领超火长袖外套</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">79</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">2</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m94itg">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m94itg?acm=3.mce.1_4_1m94itg.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_9-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s3.mogucdn.com/mlcdn/c45406/180928_61070b624eb8f4c8f9676kjg8gjd5_640x960.jpg_220x330.jpg" data-original="https://s3.mogucdn.com/mlcdn/c45406/180928_61070b624eb8f4c8f9676kjg8gjd5_640x960.jpg_220x330.jpg" data-iids="1m94itg" data-indexs="9" data-acms="3.mce.1_4_1m94itg.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_9-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m94itg?acm=3.mce.1_4_1m94itg.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_9-pm_014-lc_201" target="_blank">秋装女2018新款韩版小清新甜美气质显瘦学生软妹洛丽塔宽松格子荷叶下摆背带连衣裙网红衣服萌</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">68</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">18</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m91vq6">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m91vq6?acm=3.mce.1_4_1m91vq6.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_10-pm_014-lc_201" target="_blank">
+                          <img class="lazy loggered" src="https://s3.mogucdn.com/mlcdn/c45406/180926_32c2jb3eeahigk8fildcei2id71ej_640x960.jpg_220x330.jpg" data-original="https://s3.mogucdn.com/mlcdn/c45406/180926_32c2jb3eeahigk8fildcei2id71ej_640x960.jpg_220x330.jpg" data-iids="1m91vq6" data-indexs="10" data-acms="3.mce.1_4_1m91vq6.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_10-pm_014-lc_201" style="display: block;"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m91vq6?acm=3.mce.1_4_1m91vq6.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_10-pm_014-lc_201" target="_blank">少女甜美蝴蝶结衬衫秋装女学院风百搭闺蜜装新款宽松喇叭长袖上衣翻领条纹衬衣上衣系带小清新潮流</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">47.7</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">0</span></div>
+                        </div>
+                      </li>
+                      <li data-id="1m9u8qs">
+                        <a class="pic" href="//shop.mogujie.com/detail/1m9u8qs?acm=3.mce.1_4_1m9u8qs.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_11-pm_014-lc_201" target="_blank">
+                          <img class="lazy" src="https://s10.mogucdn.com/p2/170306/117603130_3d8589jcfd14l0985l9bkgbhh1h59_100x100.gif" data-original="https://s3.mogucdn.com/mlcdn/c45406/181014_00bh59k9k0014564kg89lk1k655lh_640x960.jpg_220x330.jpg" data-iids="1m9u8qs" data-indexs="11" data-acms="3.mce.1_4_1m9u8qs.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_11-pm_014-lc_201"></a>
+                        <a class="title" href="//shop.mogujie.com/detail/1m9u8qs?acm=3.mce.1_4_1m9u8qs.5123.0-32452.8mWH5r7cK9TJv.sd_119_115-mid_5123-pos_11-pm_014-lc_201" target="_blank">秋季韩版时尚女装新款小清新休闲套装百搭条纹卫衣外套+呢料宽松显瘦阔腿裤灯笼裤两件套</a>
+                        <div class="info">
+                          <div class="price">
+                            <em class="price-u">¥</em>
+                            <span class="price-n">79.24</span></div>
+                          <div class="fav">
+                            <em class="fav-i"></em>
+                            <span class="fav-n">5</span></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 扩展栏 -->
+            <div class="col-extra fl">
+              <i class="bor-line bor-r"></i>
+              <i class="bor-line bor-b"></i>
+              <i class="bor-line bor-l"></i>
+              <div class="qrcode">
+                <div class="qrcode-togger">手机扫码下单
+                  <!-- <br />快捷支付立减五元 --></div>
+                <div class="qrcode-pic">
+                  <!-- <img src="//shop.mogujie.com/qrcode/16qub6k"> --></div>
+                <i class="qrcode-mini"></i>
+                <i class="qrcode-arrow"></i>
+              </div>
+              <!-- 右侧子导航模块 -->
+              <div class="module-extranav" id="J_ModuleExtranav">
+                <!-- 主体 -->
+                <div class="extranav-bd">
+                  <!-- 模块-扩展导航栏 -->
+                  <!-- 注：PHP模板走的是本地模板文件：views/modules/module-extranav.php-->
+                  <!-- 子导航列表 -->
+                  <ul class="extranav-list">
+                    <!-- 商品描述 -->
+                    <li data-module="J_Graphic_desc" class="selected">
+                      <a href="javascript:;">商品描述</a></li>
+                    <!-- 产品参数 -->
+                    <li data-module="J_Graphic_产品参数" class="">
+                      <a href="javascript:;">产品参数</a></li>
+                    <!-- 模块列表 -->
+                    <li data-module="J_Graphic_穿着效果" class="">
+                      <a href="javascript:;">穿着效果</a></li>
+                    <li data-module="J_Graphic_细节做工">
+                      <a href="javascript:;">细节做工</a></li>
+                    <!-- 尺码说明 -->
+                    <li data-module="J_Graphic_尺码说明">
+                      <a href="javascript:;">尺码说明</a></li>
+                    <!-- 本店同类商品 -->
+                    <li data-module="J_RecommendList">
+                      <a href="javascript:;">商品推荐</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <footer id="pageFooter"></footer>
+    </div>
+    
+</body>
+</html>

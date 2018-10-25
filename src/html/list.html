@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>列表页</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/list.css" />
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/list.js"></script>
+</head>
+<body>
+    <div class="mgj_rightbar J_sidebar mini" style="right: 0px;">
+      <!--空的右侧边栏-->
+      <div id="mgj_rightbar_top_blank" class="mgj_rightbar_960"></div>
+      <!--方便定margin的空dediv-->
+      <div id="mgj_rightbar_blank_div"></div>
+      <!--用户头像-->
+      <!--购物车-->
+      <div class="sidebar-item mgj-my-cart" style="left: 0px;">
+        <a target="_blank" href="car.html" rel="nofollow">
+          <i class="s-icon" style="background-position: -271px -129px;"></i>
+          <div class="s-txt">购物车</div>
+          <div class="num"></div>
+        </a>
+      </div>
+      <!--优惠券-->
+      <div class="sidebar-item mgj-my-coupon">
+        <a target="_blank" rel="nofollow" href="//promotion.mogujie.com/trade/promotion/user/shopcoupon">
+          <i class="s-icon" style="background-position: -271px -159px;"></i>
+          <div class="s-txt">优惠券</div>
+        </a>
+      </div>
+      <!--钱包-->
+      <div class="sidebar-item mgj-my-wallet">
+        <a target="_blank" rel="nofollow" href="javascript:void(0);">
+          <i class="s-icon" style="background-position: -271px -219px;"></i>
+          <div class="s-txt">钱包</div></a>
+      </div>
+      <!--足迹-->
+      <div class="sidebar-item mgj-my-browserlog">
+        <a target="_blank" rel="nofollow" href="//track.mogujie.com">
+          <i class="s-icon" style="background-position: -271px -189px;"></i>
+          <div class="s-txt">足迹</div></a>
+      </div>
+      <!-- 二维码 -->
+      <div class="mgj-my-browserlog" id="qrcode">
+        <a target="_blank" rel="nofollow" href="javascript:;">
+          <i class="qr-icon"></i>
+        </a>
+        <div id="detail-qrcode" style="display: none;">
+          <img src="https://s10.mogucdn.com/mlcdn/c45406/180521_73ibbgh52kj2dceg869h50b0bgfl6_181x200.png"></div>
+      </div>
+      <!--  -->
+      <div class="sideBottom">
+        <!--回到顶部-->
+        <div class="sidebar-item mgj-back2top" style="left: 0px;">
+          <a rel="nofollow" href="javascript:;">
+          TOP
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="all">
+        <header id="pageHeader"></header>
+        <!-- 头部商标 -->
+        <div class="header_mid clearfix">
+        <div class="container clearfix">
+            <div class="wrap clearfix">
+        <a rel="nofollow" href="//www.mogujie.com?ptp=1._mf1_1239_15261.0.0.bGiWAaww&amp;f=mgjlm" class="logo" title="蘑菇街首页" style="background-image: none;" data-ptp-cache-id="1._mf1_1239_15261.0.0.bGiWAaww"><img src="https://s3.mogucdn.com/mlcdn/c45406/170904_1fj9406416501i4lkabcc0hjb8341_480x180.png" alt="蘑菇街，我的买手街"></a>
+
+        <div class="normal-search-content">
+            
+        <div class="top_nav_search" id="nav_search_form"> <!--搜索框 -->
+                <div class="search_inner_box clearfix">
+                    <div class="selectbox" data-v="1">
+                        <span class="selected">搜商品</span>
+                        <ol>
+                            <li class="current" data-index="bao"><a href="#">商品</a></li>
+                            <li data-index="shop"><a href="#">店铺</a></li>
+                        </ol>
+                    </div>
+                    <form action="/search/" method="get" id="top_nav_form">
+                        <input type="text" data-tel="search_book" name="q" class="ts_txt fl" data-def="睡衣" value="" autocomplete="off" def-v="睡衣" data-acm="3.mce.1_4_11k.39084.30653.pC6Ulr6Z2594W.p_12_hotSearchKeywordRec-mid_39084-sd_115-mdt_sketch-dit_23-lc_201">
+
+                        <input type="submit" value="搜  索" class="ts_btn">
+                        <input type="hidden" name="t" value="bao" id="select_type">
+                    </form>
+                    <div class="top_search_hint is-not-ie8-hack" style="display: none;"></div>
+                </div>
+
+                <div class="ts_hotwords">
+                <a rel="nofollow" class="ts_hotword" href=""  >鞋子</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >卫衣</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >口红</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >马甲</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >睡衣</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >风衣</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >牛仔裤</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >外套</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >衬衫</a>
+                <a rel="nofollow" class="ts_hotword" href=""  >毛衣</a>
+                </div>
+            </div>
+            </div>
+        <div class="mid_fr"><img src="https://s11.mogucdn.com/mlcdn/c45406/171130_8gf90d0d5bgc4ag4kk82gi8kc287d_440x180.png" alt="蘑菇街，我的买手街"></div>
+        </div>
+            </div>
+        </div>
+        <!-- 分类框 -->
+        <div id="condition_box">
+          <div id="search_condition_box">
+            <div class="sp_topbanner clearfix" id="sp_topbanner">
+              <div class="sp_top_nav">
+                <ul class="nav_list">
+                  <li>
+                    <a href="//list.mogujie.com/book/clothing">上衣</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/skirt">裙子</a></li>
+                  <li class="on">
+                    <a href="//list.mogujie.com/book/trousers">裤子</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/neiyi">内衣</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/shoes">鞋子</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/bags">包包</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/accessories">配饰</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/boyfriend">男友</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/magic">美妆</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/baby">母婴</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/home">家居</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/commodity">百货</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/food">食品</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/jiadian">家电</a></li>
+                  <li>
+                    <a href="//list.mogujie.com/book/sports">运动</a></li>
+                </ul>
+              </div>
+              <div class="sp_type_nav" data-ptp="_cate">
+                <div class="type_sections">
+                  <div class="type_section first">
+                    <dt>
+                      <a href="//list.mogujie.com/book/trousers/10055041?mt=10.850.r57572#sp_topbanner">当季热卖</a></dt>
+                    <dd>
+                      <a class="cat_img" href="//list.mogujie.com/book/trousers/10055041?mt=10.850.r57572#sp_topbanner">
+                        <img src="https://s7.mogucdn.com/p1/160206/9q_ifrwknlbgy2tizbygyzdambqhayde_68x68.jpg"></a>
+                      <ul>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50206?mt=10.850.r30490#sp_topbanner" class="pagani_log_link" data-log-bkey="">牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50214?mt=10.850.r30497#sp_topbanner" class="pagani_log_link" data-log-bkey="">休闲裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50216?mt=12.850.r87014.3599#sp_topbanner" class="pagani_log_link hot" data-log-bkey="">打底裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50207?mt=10.850.r30495#sp_topbanner" class="pagani_log_link" data-log-bkey="">阔腿裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50215?mt=10.850.r30498#sp_topbanner" class="pagani_log_link" data-log-bkey="">运动裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50208?mt=10.850.r30496#sp_topbanner" class="pagani_log_link" data-log-bkey="">背带裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50212?mt=10.850.r30495#sp_topbanner" class="pagani_log_link" data-log-bkey="">破洞牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50461?mt=12.850.r87014.3599#sp_topbanner" class="pagani_log_link" data-log-bkey="">连体裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/10055042?mt=10.850.r30490#sp_topbanner" class="pagani_log_link" data-log-bkey="">短裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/10056916?mt=10.850.r30497#sp_topbanner" class="pagani_log_link" data-log-bkey="">雪纺裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50210?mt=10.850.r30494#sp_topbanner" class="pagani_log_link" data-log-bkey="">哈伦裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50211?mt=10.850.r30491#sp_topbanner" class="pagani_log_link" data-log-bkey="">小脚裤</a></li>
+                      </ul>
+                    </dd>
+                  </div>
+                  <div class="type_section first">
+                    <dt>
+                      <a href="//list.mogujie.com/book/trousers/50206?mt=10.850.r57573#sp_topbanner">最爱牛仔</a></dt>
+                    <dd>
+                      <a class="cat_img" href="//list.mogujie.com/book/trousers/50206?mt=10.850.r57573&amp;ptp=1.LeamS._cate.16.unyr6zLG&amp;f=mgjlm#sp_topbanner" data-ptp-cache-id="1.LeamS._cate.16.unyr6zLG">
+                        <img src="https://s8.mogucdn.com/p1/160106/9q_ifrdcnzwmm3tqzlfguzdambqmeyde_68x68.jpg"></a>
+                      <ul>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51778?mt=10.850.r30501#sp_topbanner" class="pagani_log_link hot" data-log-bkey="">显瘦牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/10057960?mt=10.850.r30502#sp_topbanner" class="pagani_log_link" data-log-bkey="">牛仔短裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51780?mt=10.850.r30502#sp_topbanner" class="pagani_log_link" data-log-bkey="">小脚牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51781?mt=10.850.r30503#sp_topbanner" class="pagani_log_link" data-log-bkey="">休闲牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51812?mt=10.850.r30504#sp_topbanner" class="pagani_log_link" data-log-bkey="">高腰牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51817?mt=10.850.r30506#sp_topbanner" class="pagani_log_link" data-log-bkey="">九分牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51820?mt=10.850.r30508#sp_topbanner" class="pagani_log_link" data-log-bkey="">背带牛仔裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51813?mt=10.850.r30505#sp_topbanner" class="pagani_log_link hot" data-log-bkey="">破洞牛仔裤</a></li>
+                      </ul>
+                    </dd>
+                  </div>
+                  <div class="type_section first">
+                    <dt>
+                      <a href="//list.mogujie.com/book/trousers/52160?mt=10.850.r57574#sp_topbanner">舒适休闲</a></dt>
+                    <dd>
+                      <a class="cat_img" href="//list.mogujie.com/book/trousers/52160?mt=10.850.r57574#sp_topbanner">
+                        <img src="https://s7.mogucdn.com/p1/160106/9q_ifrgmm3dgm4dqzlfguzdambqmeyde_68x68.jpg"></a>
+                      <ul>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51856?mt=10.850.r30515#sp_topbanner" class="pagani_log_link hot" data-log-bkey="">阔腿休闲裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51862?mt=10.850.r30514#sp_topbanner" class="pagani_log_link" data-log-bkey="">棉质休闲裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51855?mt=10.850.r30520#sp_topbanner" class="pagani_log_link" data-log-bkey="">松紧腰休闲裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51860?mt=10.850.r30516#sp_topbanner" class="pagani_log_link" data-log-bkey="">背带休闲裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51848?mt=10.850.r30517#sp_topbanner" class="pagani_log_link" data-log-bkey="">显瘦打底裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51849?mt=12.850.r87020.3599#sp_topbanner" class="pagani_log_link" data-log-bkey="">破洞打底裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51850?mt=10.850.r30519#sp_topbanner" class="pagani_log_link" data-log-bkey="">纯棉打底裤</a></li>
+                      </ul>
+                    </dd>
+                  </div>
+                  <div class="type_section first">
+                    <dt>
+                      <a href="//list.mogujie.com/book/trousers/50005?mt=10.850.r57575#sp_topbanner">流行元素</a></dt>
+                    <dd>
+                      <a class="cat_img" href="//list.mogujie.com/book/trousers/50005?mt=10.850.r57575#sp_topbanner">
+                        <img src="https://s6.mogucdn.com/p1/160106/9q_ie4doyztmi4dqzlfguzdambqgiyde_68x68.jpg"></a>
+                      <ul>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52156?mt=10.850.r30529#sp_topbanner" class="pagani_log_link" data-log-bkey="">阔腿</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52152?mt=10.850.r30525#sp_topbanner" class="pagani_log_link" data-log-bkey="">韩版</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52151?mt=10.850.r30524#sp_topbanner" class="pagani_log_link" data-log-bkey="">修身显瘦</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/51431?mt=12.850.r87035.3599#sp_topbanner" class="pagani_log_link" data-log-bkey="">皮裤</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52153?mt=10.850.r30526#sp_topbanner" class="pagani_log_link" data-log-bkey="">纯棉</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52154?mt=10.850.r30527#sp_topbanner" class="pagani_log_link" data-log-bkey="">高腰</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52155?mt=10.850.r30528#sp_topbanner" class="pagani_log_link" data-log-bkey="">直筒</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/50213?mt=12.850.r87022.3599#sp_topbanner" class="pagani_log_link" data-log-bkey="">显瘦裤子榜</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52157?mt=10.850.r30530#sp_topbanner" class="pagani_log_link" data-log-bkey="">灯笼</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52158?mt=10.850.r30531#sp_topbanner" class="pagani_log_link hot" data-log-bkey="">喇叭</a></li>
+                        <li>
+                          <a href="//list.mogujie.com/book/trousers/52159?mt=10.850.r30532#sp_topbanner" class="pagani_log_link" data-log-bkey="">卡通</a></li>
+                      </ul>
+                    </dd>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="sub_title" id="category_all">裤子</h3></div>
+          <!-- 价格排序 -->
+            <div id="gallery_sortbar" class="gallery-sortbar clearfix">
+                  <div class="gallery-sort">
+                    <span class="gallery-sorttext">排序</span>
+                    <a href="javascript:void(0);" class="action-sort reBtn" data-sort="2"><em>人气</em></a>
+                    <a href="javascript:void(0);" class="action-sort dateBtn" data-sort="5"><em>时间</em></a>
+                    <a href="javascript:void(0);" class="action-sort priceBtn" data-sort="7"><em>价格</em></a>
+                    <input type="hidden" name="orderBy" class="action-orderby" value="">
+                  </div>
+            </div> 
+
+
+        <!-- list -->
+        <div id="list_box">
+            <div class="J_scroll_wallbox clearfix" id="J_scroll_wallbox" style="height: auto;">
+          <div class="goods_list_mod clearfix J_mod_hidebox J_mod_show output" id="J_Dynmod_mck37cni_2" style="height: auto;">
+
+            
+          </div>
+          <div class="pageview">
+              <a href="javascript:void(0);" class="flip prev over"><</a>
+              <a href="javascript:void(0);" class="flip">1</a>
+              <a href="javascript:void(0);" class="flip">2</a>
+              <a href="javascript:void(0);" class="flip">3</a>
+              <a href="javascript:void(0);" class="flip">4</a>
+              <a href="javascript:void(0);" class="flip">5</a>
+              <a href="javascript:void(0);" class="flip next append">></a>
+          </div>
+          
+        </div>
+        </div>
+
+
+        <footer id="pageFooter"></footer>
+    </div>
+</body>
+</html>

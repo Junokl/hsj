@@ -1,29 +1,28 @@
 jQuery(function($){
     //页面加载数据
     $('#pageHeader').load('../html/header.html',function(){
-          (function logincar(){
-             let login1 = $("#login1");
-              let login2 = $("#login2");
-              login1.find(".tuichu").attr("href","./login.html");
-              let admin = $.cookie("urname");
-              if(admin){
-                login2.hide();
-               login1.show().find("#admin").text($.cookie("urname"));
-               $("#login2 a").on("click",function(){
-                  $.cookie('urname',null,{expires: -1,path: '/'});
-                  logincar();
-               });
-              }else{
-                 login2.show();
-                 login1.hide();
-                 $('.tui').hide();
-              }
-          })();
-          topcar();
-          $(".btn-sidecart").attr("href","html/car.html");
-          $('.nav-category a').each(function(){
-                $(this).attr("href","html/list.html");
-            });
+      (function logincar(){
+         let login1 = $("#login1");
+          let login2 = $("#login2");
+          login1.find(".tuichu").attr("href","./login.html");
+          let admin = $.cookie("urname");
+          if(admin){
+            login2.hide();
+           login1.show().find("#admin").text($.cookie("urname"));
+           $("#login2 a").on("click",function(){
+              $.cookie('urname',null,{expires: -1,path: '/'});
+              logincar();
+           });
+          }else{
+             login2.show();
+             login1.hide();
+             $('.tui').hide();
+          }
+      })();
+      $(".btn-sidecart").attr("href","html/car.html");
+      $('.nav-category a').each(function(){
+            $(this).attr("href","html/list.html");
+        });
        });
    $('#pageFooter').load('../html/footer.html',function(){
         $("#js_carttitle").on("click",function(){
@@ -48,11 +47,11 @@ jQuery(function($){
     $(window).trigger('scroll');//触发滚动事件，避免刷新的时候显示回到顶部按钮
 
     //鼠标i移动到小二维码到处大二维码
-    $(".qrcode").on("mouseover",function(){
-        $(".qrcode-pic").css("display","block");
-    }).on("mouseout",function(){
-        $(this).css("display","none");
-    })
+    // $(".qrcode").on("mouseover",function(){
+    //     $(".qrcode-pic").css("display","block");
+    // }).on("mouseout",function(){
+    //     $(this).css("display","none");
+    // })
 
 
 
@@ -60,7 +59,6 @@ jQuery(function($){
 theCar();   
 function theCar(){
   let yonghuming = $.cookie("urname")||"";
-     console.log(yonghuming);
      if(yonghuming==""){
         location.href="./login.html";
         return;
@@ -71,15 +69,14 @@ function theCar(){
     dataType : 'json',
     data : {admin:yonghuming},
     success : function(data){
-      let cabianqty=0;
+      let touqty=0;
       let goodsprice =0;
       let goodsTr = $(".goods");
       let payjian =$(".goodsNum");//买了多少件
       let fuqian = $(".allPrice");//花多少钱
-      let html ="";
-      html = data.map(function(item){
-        cabianqty+=parseInt(item.qty);
-        $(".num").html(cabianqty);
+      let html = data.map(function(item){
+        touqty+=parseInt(item.qty);
+        $(".num").html(touqty);
         goodsprice=parseInt(item.qty*item.curprice);
         return `<tr class="cart_mitem " data-guid="${item.id}">
                   <td class="vm ">
@@ -103,9 +100,10 @@ function theCar(){
                   <td class="cart_alcenter">
                   <div>
                   <div class="cart_num cart_counter" >
+                  
                     <input type="text" class="cart_num_input shu cart_bold" maxlength="6" value="${item.qty}">
-                    <span class="cart_num_add add"></span>
-                    <span class="cart_num_reduce min disable"></span>
+                    <span class="add cart_num_add "></span>
+                    <span class="min cart_num_reduce  disable"></span>
                   </div>
                   </div>
                   </td>
@@ -116,10 +114,10 @@ function theCar(){
                 </tr>`;
       
       }).join("");
-      goodsTr.append(html);
+      goodsTr.html(html);
       let allBtn = $("#s_all_h");//全选
       let payBtn =$("#payBtn");//付款按钮
-      let sCheckbox = $(":checkbox").not("#s_all_h ");
+      let sCheckbox = $(":checkbox").not("#s_all_h");
       allBtn.on("click",function(){
         sCheckbox.prop("checked",this.checked);
         yunsuan();
@@ -129,7 +127,13 @@ function theCar(){
         quanxuan();
         yunsuan();
       });
-
+      // 检测全选按钮状态
+      function checkall(){
+        // 获取选中的复选框
+        let $checkeds = $checkboxs.filter(':checked');
+        // 判断勾选数量与checkbox的数量是否相等
+        allBtn.prop('checked',$checkboxs.length===$checkeds.length);
+      }
       function quanxuan(){//点满全选
         let len = sCheckbox.length;
         let checkedlen = sCheckbox.filter(":checked").length;
@@ -150,6 +154,7 @@ function theCar(){
             jiage += parseInt($(this).closest(".cart_mitem").children('.cart_alcenter').children(".item_sum").text().replace(/[^0-9]/g, ""));
             zongshu+=parseInt($(this).closest(".cart_mitem").find("input[ type='text' ]").val());
           })
+          // $(".num").text(zongshu);
           payjian.text(zongshu);
           fuqian.text(`${jiage}`);
       };
@@ -171,12 +176,113 @@ function theCar(){
         });
 
       });
+      var numbox = $(".cart_num");
+      numbox.find(".min").on("click",{a:data},function minlist(e){
+        let mindata = e.data;
+        // console.log(mindata);
+        let minqty = $(this).siblings("input[type='text']");//qty元素
+        // console.log(minqty);
+        let old = minqty.attr('old');
+        console.log(old);
+        let guid=$(this).closest(".cart_mitem").attr("data-guid");
+        let xinQ=minqty.val()-1;
+        console.log(minqty);
+        // console.log(xinQ);
+          if(xinQ<1){
+            xinQ=1;
+          }
+          minqty.val(xinQ);
+          // let carArr ={};
+          // $.each(mindata,function(idx,item){
+          //   $.each(item,function(idx,item){
+          //     // console.log(item);
+          //     if(item.id==guid){
+          //       console.log(666);
+          //       carArr=item;
+          //       console.log(carArr);
+          //     carArr.qty=minqty.val()-old;
+          //     }
+          //   });
+          // });
+          // xin(minqty.val(),old,carArr);
+          yunsuan();
+          });
+        numbox.find(".add").on("click",{a:data},function minlist(e){
+        let mindata = e.data;
+        // console.log(mindata);
+        let minqty = $(this).siblings("input[type='text']");//qty元素
+        // console.log(minqty);
+        let old = minqty.attr('old');
+        console.log(old);
+        let guid=$(this).closest(".cart_mitem").attr("data-guid");
+        let xinadd=minqty.val()-1;
+        console.log(minqty);
+        // console.log(xinadd);
+          if(xinadd<1){
+            xinadd=1;
+          }
+          minqty.val(xinadd);
+          // let carArr ={};
+          // $.each(mindata,function(idx,item){
+          //   $.each(item,function(idx,item){
+          //     // console.log(item);
+          //     if(item.id==guid){
+          //       console.log(666);
+          //       carArr=item;
+          //       console.log(carArr);
+          //     carArr.qty=minqty.val()-old;
+          //     }
+          //   });
+          // });
+          // xin(minqty.val(),old,carArr);
+          yunsuan();
+          });
+
 
     }
   })
 }
-
-
+//清除所有商品
+$(".cart_pregray").on("click",function(){
+  var yonghuming = $.cookie("urname")||"";
+  $.ajax({
+    url : '../api/removecar.php',
+    type : 'get',
+    dataType : 'json',
+    data : {removecar:"yes",admin:yonghuming},
+    success : function(data){
+        if(data){
+          theCar();
+          topcar();
+        }
+    }
+  });
+})
+//当增加减少商品时判断，old存储旧值，如果不相等就更新数据
+function xin(value,old,cartArr){
+  if(old!=value){
+    $.ajax({
+      url : '../api/car.php',
+      type : 'get',
+      dataType : 'json',
+      data : {
+        admin : cartArr.admin,
+        id : cartArr.id,
+        Sname : cartArr.Sname,
+        imgurl : cartArr.imgurl,
+        curprice : cartArr.curprice,
+        oldprice : cartArr.olfprice,
+        qty : cartArr.qty
+      },
+      success : function(data){
+        if(data){
+          theCar();
+          topcar();
+        }
+      }
+    });
+  }
+};
 
    topcar();
     function topcar(){
@@ -192,10 +298,10 @@ function theCar(){
         dataType: 'json',
         data: {admin:yonghuming},
          success: function(data){
-          let cabianqty=0;
+          let touqty=0;
            let ul = $(".max_height_ie6");
           let html = data.map(function(item){
-            cabianqty+=parseInt(item.qty);
+            touqty+=parseInt(item.qty);
             let str ="";
             str=item.imgurl.split("&");
             return `<li guid="${item.id}">
@@ -207,13 +313,14 @@ function theCar(){
                       <span data-stockid="1osumus" class="del">删除</span>
                     </li>`;
           }).join('');
-           $(".jian").html(cabianqty);
+          $(".num").html(touqty);
+           $(".jian").html(touqty);
           ul.html(html);
-          ul.on("click",".action-delete",function(){
-             var currentGuid = $(this).attr("data-guid");
+          ul.on("click",".del",function(){
+             var currentGuid = $(this).closest(".topcart").attr("guid");
              console.log(currentGuid);
-             let yonghuming = $.cookie("urname")||"";
-             if(yonghuming==""){
+             let admin = $.cookie("urname")||"";
+             if(admin==""){
                 location.href="./login.html";
                 return;
                }
@@ -221,15 +328,15 @@ function theCar(){
                   url: '../api/topcar.php',
                   type: 'get',
                   dataType: 'json',
-                  data: {id:currentGuid,admin:yonghuming},
+                  data: {id:currentGuid,admin:admin},
                    success: function(data){
-                      let cabianqty=0;
+                      let touqty=0;
                       let ul = $(".max_height_ie6");
                       let html = data.map(function(item){
-                        cabianqty+=parseInt(item.qty);
+                        touqty+=parseInt(item.qty);
                         let str ="";
                         str=item.imgurl.split("&");
-                        return `<li guid="${item.id}">
+                        return `<li class="topcart" guid="${item.id}">
                               <a rel="nofollow" href="car.html" class="imgbox">
                                 <img src="${item.imgurl}" alt="" width="45"></a>
                               <a rel="nofollow" href="car.html" target="_blank" class="title" >${item.Sname}</a>
@@ -238,7 +345,9 @@ function theCar(){
                               <span data-stockid="1osumus" class="del">删除</span>
                             </li>`;
                       }).join('');
-                    $(".jian").html(cabianqty);
+                      $(".num").html(touqty);
+                    $(".jian").html(touqty);
+
                       ul.html(html);
                       }
                   });

@@ -1,29 +1,29 @@
 jQuery(function($){
     //页面加载数据
     $('#pageHeader').load('html/header.html',function(){
-          (function logincar(){
-             let login1 = $("#login1");
-              let login2 = $("#login2");
-              let admin = $.cookie("urname");
-              if(admin){
-                login2.hide();
-               login1.show().find("#admin").text($.cookie("urname"));
-               $(".tuichu").on("click",function(){
-                  $.cookie('urname',null,{expires: -1,path: '/'});
-                  logincar();
-                  topcar();
-               });
-              }else{
-                 login2.show();
-                 login1.hide();
-                 $('.tui').hide();
-              }
-          })();
-         // topcar();
-          $(".nav_wrap").attr("href","html/car.html");
-          $('.nav_wrap a').each(function(){
-                $(this).attr("href","html/list.html");
-            });
+      (function logincar(){
+         let login1 = $("#login1");
+          let login2 = $("#login2");
+          let admin = $.cookie("urname");
+          if(admin){
+            login2.hide();
+           login1.show().find("#admin").text($.cookie("urname"));
+           $(".tuichu").on("click",function(){
+              $.cookie('urname',null,{expires: -1,path: '/'});
+              logincar();
+              topcar();
+           });
+          }else{
+             login2.show();
+             login1.hide();
+             $('.tui').hide();
+          }
+      })();
+     // topcar();
+      $(".nav_wrap").attr("href","html/car.html");
+      $('.nav_wrap a').each(function(){
+            $(this).attr("href","html/list.html");
+        });
        });
    $('#pageFooter').load('html/footer.html',function(){
         $("#js_carttitle").on("click",function(){
@@ -60,34 +60,86 @@ jQuery(function($){
             backButton.fadeOut();  
     });  
     $(window).trigger('scroll');//触发滚动事件，避免刷新的时候显示回到顶部按钮
+    $(".selectbox").on("mouseover",function(){
+      $(this).addClass("sele_hover");
+    }).on("mouseout",function(){
+      $(this).removeClass("sele_hover");
+    });
 
-    // $('.banner').setSlide({
-    //       fullScreenw:true,
-    //       pagination:true,
-    //       slideLih:440,
-    //       pagingTrigger:'hover',
-    //       slideTime:2000,
-    //       autoPlay:true
-    //     });
-    // $(window).resize(function(){
-    //        $('.banner').setSlide({
-    //         fullScreenw:true,
-    //         slideLih:440,
-    //         pagingTrigger:'hover',
-    //         slideTime:2000,
-    //         autoPlay:true
-    //       });
-    //     });
-    // $('.slide-box-demo1').setSlide({
-    //   isBlock:true,
-    //   pagination:true
-    // });
-    // $('.slide-box-demo2').setSlide({
-    //   isBlock:true,
-    //   pagination:true,
-    //   slideLiw:651,
-    //   slideLih:555
-    // });
+
+
+    var unslider04 = $('#b04').unslider({
+    dots: true,
+
+    });
+
+    data04 = unslider04.data('unslider');
+    
+    $('.unslider-arrow04').click(function() {
+          var fn = this.className.split(' ')[1];
+          data04[fn]();
+      });
+
+    var unslider05 = $('#b05').unslider({
+      dots: true,
+
+    });
+
+    data05 = unslider05.data('unslider');
+    
+    $('.unslider-arrow05').click(function() {
+          var fn = this.className.split(' ')[1];
+          data05[fn]();
+      });
+
+   
+
+
+    $.ajax({
+      url :'api/list.php',
+      type : 'get',
+      dataType : 'json',
+      data :{},
+      success : function(data){
+        let output = $(".goodshop");
+        $.each(data,function(idx,item){
+          // console.log(item);
+          var imgurl =[];
+          let str ="";
+          str = item.imgurl.split("&");
+          // console.log(str);
+          $.each(str,function(idx,item){
+            imgurl.push(item.substr(3));
+            // console.log(imgurl);
+          });
+          // chuanchu(data);
+          let html = `<div class="iwf goods_item ratio3x4" data-guid="${item.id}" >
+                      
+                      <a  href="javascript:void(0);" class="img pagani_log_link J_dynamic_imagebox loading_bg_120 J_loading_success"   >
+                        
+                        <img class="J_dynamic_img fill_img chuan" src="${imgurl}"  ><span class="date">${item.time}</span></a>
+                      <a  href="javascript:void(0);" class="pagani_log_link goods_info_container chuan" >
+                      <a class="likeLink yahei" href="javascript:void(0);" >找相似</a>
+                        <p class="title yahei fl chuan" style="height:40px;margin-bottom:3px">${item.title}</p>
+                        <div class="goods_info fl">
+                          <b class="price_info yahei">¥${item.price}</b>
+                          <p class="org_price fl yahei">¥&nbsp;
+                            <span>${item.lprice}</span></p>
+                          <span class="fav_num fr">
+                            <img src="images/xing.png" height="30" width="32" >${item.shouc}</span></div>
+                      </a>
+                    </div>`;
+
+                    output.append(html);
+        });
+      }
+    });
+
+      
+            
+        
+  // $(".goods_banner1").lmCarousel({fade:init()});
+
     //移入显示二维码
     // $("#qrcode").on("mouseover",function(){
     //   ${"#detail-qrcode").css("display","block");
@@ -127,16 +179,18 @@ jQuery(function($){
       let output = $(".dbArr");
         let html = "";
         let xiaArr=[];
-        console.log(data);
+        // console.log(data[1]);
         let xiaStr=data[8];
         // xiaStr=data.split(",");
         // console.log(xiaStr);
         
         for(let i=8;i<data.length;i++){
-          // console.log(data);
-          console.log(xiaStr);
+
+          // console.log(len);
+          // console.log(xiaStr);
         }
          $.each(data,function(idx,item){
+          // console.log(idx);
                  if(idx>=6){  return;  }
             html +=  ` <div class="output fl">
                     <a href="" class="cube-acm-node has-log-mod"  >
@@ -147,7 +201,7 @@ jQuery(function($){
                         <span>¥</span>${item.price}</p></a>
                   </div> `;                
         });
-        output.html(html);
+        output.append(html);
     }
 
 
@@ -166,68 +220,68 @@ jQuery(function($){
         data: {admin:admin},
          success: function(data){
                 // console.log(data);
-                let cabianqty=0;
+                let touqty=0;
                  let ul = $(".max_height_ie6");
                 let html = data.map(function(item){
-                  cabianqty+=parseInt(item.qty);
-                  let images = [];
+                  touqty+=parseInt(item.qty);
+                  let imaurl = [];
                   let str ="";
                   str=item.imgurl.split("&");
-                  $(".num").html(cabianqty);
+                  $(".num").html(touqty);
                   $.each(str,function(idx,item){
-                    images.push(item.substr(3));
+                    imaurl.push(item.substr(3));
                   });
                   return `<li guid="${item.id}">
                             <a rel="nofollow" href="car.html" class="imgbox">
-                              <img src="${images[0]}" alt="" width="45"></a>
+                              <img src="${imaurl}" alt="" width="45"></a>
                             <a rel="nofollow" href="car.html" target="_blank" class="title" >${item.Sname}</a>
                             <span class="info">颜色: 黑色 尺码: 均码</span>
                             <span class="price">¥${item.curprice}</span>
                             <span data-stockid="1osumus" class="del">删除</span>
                           </li>`;
                 }).join('');
-                 $(".jian").html(cabianqty);
-                 // console.log(cabianqty);
-                // cebianlan(cabianqty);
+                 $(".jian").html(touqty);
+                 // console.log(touqty);
                 ul.html(html);
-                ul.on("click",".action-delete",function(){
-                   var currentGuid = $(this).attr("data-guid");
-                   console.log(currentGuid);
-                   let admin = $.cookie("urname")||"";
-                   if(admin==""){
-                   //    location.href="html/login.html";
-                      return;
-                     }
-                       $.ajax({
-                        url: './api/topcar.php',
-                        type: 'get',
-                        dataType: 'json',
-                        data: {id:currentGuid,admin:admin},
-                         success: function(data){
-                            let cabianqty=0;
-                            let ul = $(".max_height_ie6");
-                            let html = data.map(function(item){
-                              cabianqty+=parseInt(item.qty);
-                              let images =[];
-                              let str ="";
-                              str=item.imgurl.split("&");
-                              $.each(str,function(idx,item){
-                                images.push(item.substr(3));
-                              });
-                              return `<li guid="${item.id}">
-                                    <a rel="nofollow" href="car.html" class="imgbox">
-                                      <img src="${images[0]}" alt="" width="45"></a>
-                                    <a rel="nofollow" href="car.html" target="_blank" class="title" >${item.Sname}</a>
-                                    <span class="info">颜色: 黑色 尺码: 均码</span>
-                                    <span class="price">¥${item.curprice}</span>
-                                    <span data-stockid="1osumus" class="del">删除</span>
-                                  </li>`;
-                            }).join('');
-                          $(".jian").html(cabianqty);
-                            ul.html(html);
-                            }
+                ul.on("click",".del",function(){
+             var currentGuid = $(this).closest(".topcart").attr("guid");
+             let admin = $.cookie("urname")||"";
+             if(admin==""){
+                // location.href="./login.html";
+                return;
+               }
+                 $.ajax({
+                  url: './api/topcar.php',
+                  type: 'get',
+                  dataType: 'json',
+                  data: {id:currentGuid,admin:admin},
+                   success: function(data){
+                      let touqty=0;
+                      let ul = $(".max_height_ie6");
+                      let html = data.map(function(item){
+                        touqty+=parseInt(item.qty);
+                        let imgurl=[];
+                        let str ="";
+                        str = item.imgurl.split("&");
+                        $.each(str,function(idx,item){
+                          imgurl.push(item.substr(3));
+                          // console.log(imgurl);
                         });
-                });
+                        return `<li class="topcart" guid="${item.id}">
+                              <a rel="nofollow" href="car.html" class="imgbox">
+                                <img src="${imgurl}" alt="" width="45"></a>
+                              <a rel="nofollow" href="car.html" target="_blank" class="title" >${item.Sname}</a>
+                              <span class="info">颜色: 黑色 尺码: 均码</span>
+                              <span class="price">¥${item.curprice}</span>
+                              <span data-stockid="1osumus" class="del">删除</span>
+                            </li>`;
+                      }).join('');
+                    $(".jian").html(touqty);
+                    $(".num").html(touqty);
+                      ul.html(html);
+                      }
+                  });
+          });
           }
         });
   };

@@ -2,8 +2,8 @@ jQuery.fn.lmCarousel = function(obj){
     console.log(this);
     var defaults = {
         imgs : [],
-        width : 300,
-        height : 300,
+        width : 960,
+        height : 408,
         type : "fade",
         seamless : false,
         idx : 0,

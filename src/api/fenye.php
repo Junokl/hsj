@@ -1,5 +1,5 @@
 <?php
-    $qty = isset($_GET['qty'])? $_GET['qty'] :20;
+    $qty = isset($_GET['qty'])? $_GET['qty'] :25;
     $curpage =  isset($_GET['curpage'])? $_GET['curpage'] : 1;
     $idx = ($curpage-1)*$qty;
 
@@ -16,6 +16,7 @@
     $quabu = 'select * from list';
     $_quanbu = $conn->query($quabu); 
     $quan = $_quanbu->fetch_all(MYSQL_ASSOC);
+    // var_dump($quan);
     //分页
     $sql = 'select * from list order by id limit '.$idx.','.$qty;
     $result = $conn->query($sql); 
@@ -30,8 +31,8 @@
         );
     $result->close();
     $_quanbu->close();
-    // var_dump($row);
-    echo json_encode($res);
+    // var_dump($res[qty]);
+    echo json_encode($res,JSON_UNESCAPED_UNICODE);
     $conn->close();
 
     
